@@ -1,0 +1,1440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="ZOVA — Your world. Your content. Your community.">
+  <meta name="author" content="ZOVA">
+  <title>ZOVA — Discover Everything</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Main stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="zova-app" id="zovaApp">
+
+    <!-- ==========================================
+         APPLICATION SIDEBAR
+    =========================================== -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="brand">
+        <a href="#home" class="brand-logo" aria-label="ZOVA home">
+          ZOVA<span class="brand-dot">.</span>
+        </a>
+        <button class="icon-button mobile-close" id="closeSidebar" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Current user -->
+      <div class="sidebar-profile" id="sidebarProfile">
+        <div class="avatar avatar-gradient">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="profile-details">
+          <strong id="sidebarUsername">Welcome to ZOVA</strong>
+          <span id="sidebarUserStatus">Discover your world</span>
+        </div>
+        <button class="icon-button profile-menu" aria-label="Profile menu">
+          <i class="fa-solid fa-ellipsis"></i>
+        </button>
+      </div>
+
+      <!-- Primary navigation -->
+      <nav class="main-navigation" aria-label="Main navigation">
+        <span class="nav-heading">YOUR SPACE</span>
+
+        <a href="#home" class="nav-link active" data-page="home">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+
+        <a href="#explore" class="nav-link" data-page="explore">
+          <i class="fa-solid fa-compass"></i>
+          <span>Explore</span>
+        </a>
+
+        <a href="#shorts" class="nav-link" data-page="shorts">
+          <i class="fa-solid fa-clapperboard"></i>
+          <span>Short videos</span>
+          <span class="nav-badge">NEW</span>
+        </a>
+
+        <a href="#videos" class="nav-link" data-page="videos">
+          <i class="fa-solid fa-play"></i>
+          <span>Videos</span>
+        </a>
+
+        <a href="#music" class="nav-link" data-page="music">
+          <i class="fa-solid fa-music"></i>
+          <span>Music</span>
+        </a>
+
+        <a href="#memes" class="nav-link" data-page="memes">
+          <i class="fa-regular fa-face-laugh"></i>
+          <span>Memes</span>
+        </a>
+
+        <a href="#articles" class="nav-link" data-page="articles">
+          <i class="fa-regular fa-newspaper"></i>
+          <span>Articles</span>
+        </a>
+
+        <a href="#saved" class="nav-link" data-page="saved">
+          <i class="fa-regular fa-bookmark"></i>
+          <span>Saved posts</span>
+        </a>
+
+        <div class="nav-divider"></div>
+        <span class="nav-heading">COMMUNITY</span>
+
+        <a href="#messages" class="nav-link" data-page="messages">
+          <i class="fa-regular fa-message"></i>
+          <span>Messages</span>
+          <span class="nav-count" id="messageCount">0</span>
+        </a>
+
+        <a href="#groups" class="nav-link" data-page="groups">
+          <i class="fa-solid fa-users"></i>
+          <span>Communities</span>
+        </a>
+
+        <a href="#notifications" class="nav-link" data-page="notifications">
+          <i class="fa-regular fa-bell"></i>
+          <span>Notifications</span>
+          <span class="notification-dot"></span>
+        </a>
+
+        <a href="#following" class="nav-link" data-page="following">
+          <i class="fa-solid fa-user-group"></i>
+          <span>Following</span>
+        </a>
+
+        <div class="nav-divider"></div>
+        <span class="nav-heading">PERSONAL</span>
+
+        <a href="#profile" class="nav-link" data-page="profile">
+          <i class="fa-regular fa-user"></i>
+          <span>My profile</span>
+        </a>
+
+        <a href="#analytics" class="nav-link" data-page="analytics">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Creator studio</span>
+        </a>
+
+        <a href="#settings" class="nav-link" data-page="settings">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <!-- Create content -->
+      <div class="sidebar-create">
+        <button class="create-button" id="openUpload">
+          <i class="fa-solid fa-plus"></i>
+          <span>Create a post</span>
+        </button>
+      </div>
+
+      <!-- Sidebar bottom -->
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-note">
+          <span class="footer-dot"></span>
+          <span>ZOVA preview</span>
+        </div>
+        <span class="sidebar-version">Version 1.0</span>
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         MAIN APPLICATION
+    =========================================== -->
+    <main class="main-workspace">
+
+      <!-- Top navigation -->
+      <header class="topbar">
+        <div class="topbar-left">
+
+          <button class="icon-button menu-toggle" id="menuToggle" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <a href="#home" class="mobile-brand">
+            ZOVA<span>.</span>
+          </a>
+
+          <!-- Global search -->
+          <form class="search-container" id="searchForm" role="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="globalSearch" placeholder="Search creators, music, videos..." aria-label="Search ZOVA">
+            <button type="button" class="search-shortcut" id="searchShortcut" aria-label="Search shortcut">
+              /
+            </button>
+          </form>
+        </div>
+
+        <div class="topbar-actions">
+
+          <button class="icon-button theme-toggle" id="themeToggle" aria-label="Change theme">
+            <i class="fa-regular fa-moon"></i>
+          </button>
+
+          <button class="icon-button notification-toggle" id="notificationToggle" aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="notification-indicator"></span>
+          </button>
+
+          <button class="icon-button help-button" id="helpButton" aria-label="Help">
+            <i class="fa-regular fa-circle-question"></i>
+          </button>
+
+          <button class="header-avatar" id="headerProfile" aria-label="Open profile">
+            <i class="fa-solid fa-user"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main page container -->
+      <div class="content-layout">
+
+        <!-- ======================================
+             CENTRAL CONTENT
+        ======================================= -->
+        <section class="feed-column" id="mainContent">
+
+          <!-- Home page -->
+          <section class="page-section active" id="homePage" data-section="home">
+
+            <div class="welcome-section">
+              <div class="welcome-copy">
+                <span class="eyebrow">YOUR DAILY SPACE</span>
+                <h1>Discover your <span>world.</span></h1>
+                <p>Ideas, creativity and conversations from everywhere.</p>
+              </div>
+
+              <button class="feed-filter" id="feedFilter">
+                <i class="fa-solid fa-sliders"></i>
+                <span>For you</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+
+            <!-- Content categories -->
+            <div class="category-bar" id="categoryBar" role="group" aria-label="Content categories">
+              <button class="category-chip active" data-category="all">For you</button>
+              <button class="category-chip" data-category="videos">
+                <i class="fa-solid fa-play"></i> Videos
+              </button>
+              <button class="category-chip" data-category="music">
+                <i class="fa-solid fa-music"></i> Music
+              </button>
+              <button class="category-chip" data-category="memes">
+                <i class="fa-regular fa-face-laugh"></i> Memes
+              </button>
+              <button class="category-chip" data-category="technology">Technology</button>
+              <button class="category-chip" data-category="art">Art & Design</button>
+              <button class="category-chip" data-category="gaming">Gaming</button>
+              <button class="category-chip" data-category="education">Education</button>
+            </div>
+
+            <!-- Stories and moments -->
+            <section class="stories-section">
+              <div class="section-heading">
+                <div>
+                  <h2>Moments</h2>
+                  <p>Quick updates from the community</p>
+                </div>
+                <button class="text-button" id="viewAllStories">View all</button>
+              </div>
+
+              <div class="stories-list" id="storiesList">
+                <button class="story-item create-story" id="createStory">
+                  <span class="story-avatar story-add">
+                    <i class="fa-solid fa-plus"></i>
+                  </span>
+                  <span>Your moment</span>
+                </button>
+
+                <button class="story-item">
+                  <span class="story-avatar story-purple"><span>AR</span></span>
+                  <span>Arun</span>
+                </button>
+
+                <button class="story-item">
+                  <span class="story-avatar story-blue"><span>MK</span></span>
+                  <span>Maya</span>
+                </button>
+
+                <button class="story-item">
+                  <span class="story-avatar story-orange"><span>RJ</span></span>
+                  <span>Riya</span>
+                </button>
+
+                <button class="story-item">
+                  <span class="story-avatar story-green"><span>VS</span></span>
+                  <span>Vikram</span>
+                </button>
+
+                <button class="story-item">
+                  <span class="story-avatar story-pink"><span>SK</span></span>
+                  <span>Sam</span>
+                </button>
+              </div>
+            </section>
+
+            <!-- Post composer -->
+            <section class="quick-composer" id="quickComposer">
+              <div class="composer-top">
+                <div class="avatar avatar-gradient">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <button class="composer-input" id="composerInput">
+                  Share something with the world...
+                </button>
+              </div>
+
+              <div class="composer-actions">
+                <button class="composer-action" data-upload-type="image">
+                  <i class="fa-regular fa-image"></i>
+                  <span>Photo</span>
+                </button>
+
+                <button class="composer-action" data-upload-type="video">
+                  <i class="fa-solid fa-video"></i>
+                  <span>Video</span>
+                </button>
+
+                <button class="composer-action" data-upload-type="music">
+                  <i class="fa-solid fa-music"></i>
+                  <span>Music</span>
+                </button>
+
+                <button class="composer-action" id="composerMore">
+                  <i class="fa-solid fa-ellipsis"></i>
+                  <span>More</span>
+                </button>
+              </div>
+            </section>
+
+            <!-- Feed controls -->
+            <div class="feed-heading">
+              <div>
+                <h2>Community feed</h2>
+                <span>Fresh content for you</span>
+              </div>
+
+              <div class="feed-heading-actions">
+                <button class="icon-button" id="feedRefresh" aria-label="Refresh feed">
+                  <i class="fa-solid fa-rotate"></i>
+                </button>
+                <button class="icon-button" id="feedOptions" aria-label="Feed options">
+                  <i class="fa-solid fa-ellipsis"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Posts are rendered here -->
+            <div class="feed-list" id="feedList">
+
+              <!-- Example technology post -->
+              <article class="post-card" data-category="technology" data-post-id="sample-001">
+                <div class="post-header">
+                  <div class="post-user">
+                    <div class="post-avatar avatar-purple">JD</div>
+                    <div class="post-user-info">
+                      <strong>Jordan Davis</strong>
+                      <span>@jordancreates · 2h</span>
+                    </div>
+                    <span class="verified-icon" aria-label="Verified">
+                      <i class="fa-solid fa-circle-check"></i>
+                    </span>
+                  </div>
+
+                  <button class="icon-button post-menu" aria-label="Post options">
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </button>
+                </div>
+
+                <div class="post-content">
+                  <p>
+                    Exploring the intersection of creativity and technology.
+                    What an incredible time to build something new.
+                    <span class="post-hashtag">#Creativity #Technology</span>
+                  </p>
+                </div>
+
+                <div class="post-media media-placeholder">
+                  <div class="media-art">
+                    <div class="media-orbit orbit-one"></div>
+                    <div class="media-orbit orbit-two"></div>
+                    <div class="media-center">
+                      <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <span>CREATE WITHOUT LIMITS</span>
+                  </div>
+                </div>
+
+                <div class="post-stats">
+                  <span>
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="like-total">128</span> likes
+                  </span>
+                  <span>24 comments · 8 shares</span>
+                </div>
+
+                <div class="post-actions">
+                  <button class="post-action like-button">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>Like</span>
+                  </button>
+                  <button class="post-action comment-button">
+                    <i class="fa-regular fa-comment"></i>
+                    <span>Comment</span>
+                  </button>
+                  <button class="post-action share-button">
+                    <i class="fa-solid fa-share"></i>
+                    <span>Share</span>
+                  </button>
+                  <button class="post-action save-button" aria-label="Save post">
+                    <i class="fa-regular fa-bookmark"></i>
+                  </button>
+                </div>
+
+                <div class="comment-area" hidden>
+                  <div class="comment-list"></div>
+                  <form class="comment-form">
+                    <input type="text" placeholder="Write a comment..." maxlength="500">
+                    <button type="submit" aria-label="Send comment">
+                      <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                  </form>
+                </div>
+              </article>
+
+              <!-- Example meme post -->
+              <article class="post-card" data-category="memes" data-post-id="sample-002">
+                <div class="post-header">
+                  <div class="post-user">
+                    <div class="post-avatar avatar-orange">MK</div>
+                    <div class="post-user-info">
+                      <strong>Maya Kumar</strong>
+                      <span>@mayak · 4h</span>
+                    </div>
+                  </div>
+
+                  <button class="icon-button post-menu" aria-label="Post options">
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </button>
+                </div>
+
+                <div class="post-content">
+                  <p>
+                    When you finally finish a project after saying
+                    "just five more minutes" for three hours.
+                    <span class="post-hashtag">#Relatable</span>
+                  </p>
+                </div>
+
+                <div class="post-media meme-placeholder">
+                  <div class="meme-text">
+                    <span>THE PLAN</span>
+                    <strong>5 MINUTES</strong>
+                    <span>THE REALITY</span>
+                    <strong>3 HOURS LATER</strong>
+                  </div>
+                </div>
+
+                <div class="post-stats">
+                  <span>
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="like-total">342</span> likes
+                  </span>
+                  <span>61 comments · 19 shares</span>
+                </div>
+
+                <div class="post-actions">
+                  <button class="post-action like-button">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>Like</span>
+                  </button>
+                  <button class="post-action comment-button">
+                    <i class="fa-regular fa-comment"></i>
+                    <span>Comment</span>
+                  </button>
+                  <button class="post-action share-button">
+                    <i class="fa-solid fa-share"></i>
+                    <span>Share</span>
+                  </button>
+                  <button class="post-action save-button" aria-label="Save post">
+                    <i class="fa-regular fa-bookmark"></i>
+                  </button>
+                </div>
+
+                <div class="comment-area" hidden>
+                  <div class="comment-list"></div>
+                  <form class="comment-form">
+                    <input type="text" placeholder="Write a comment..." maxlength="500">
+                    <button type="submit" aria-label="Send comment">
+                      <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                  </form>
+                </div>
+              </article>
+
+            </div>
+
+            <div class="feed-loading" id="feedLoading" hidden>
+              <span class="loading-spinner"></span>
+              <span>Loading more content...</span>
+            </div>
+
+            <div class="feed-end" id="feedEnd" hidden>
+              <i class="fa-solid fa-circle-check"></i>
+              <p>You're all caught up.</p>
+            </div>
+          </section>
+
+          <!-- ====================================
+               EXPLORE PAGE
+          ===================================== -->
+          <section class="page-section" id="explorePage" data-section="explore" hidden>
+            <div class="page-title">
+              <span class="eyebrow">FIND SOMETHING NEW</span>
+              <h1>Explore <span>everything.</span></h1>
+              <p>Discover creators, ideas and communities.</p>
+            </div>
+
+            <div class="explore-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" id="exploreSearch" placeholder="What are you looking for?">
+            </div>
+
+            <div class="explore-categories" id="exploreCategories">
+              <button class="explore-category active" data-explore="all">All</button>
+              <button class="explore-category" data-explore="video">Videos</button>
+              <button class="explore-category" data-explore="music">Music</button>
+              <button class="explore-category" data-explore="art">Art</button>
+              <button class="explore-category" data-explore="gaming">Gaming</button>
+              <button class="explore-category" data-explore="education">Education</button>
+            </div>
+
+            <div class="explore-grid" id="exploreGrid">
+              <article class="explore-card explore-featured" data-type="technology">
+                <div class="explore-card-visual visual-tech">
+                  <i class="fa-solid fa-microchip"></i>
+                </div>
+                <div class="explore-card-info">
+                  <span>Technology</span>
+                  <h3>Ideas shaping tomorrow</h3>
+                </div>
+              </article>
+
+              <article class="explore-card" data-type="music">
+                <div class="explore-card-visual visual-music">
+                  <i class="fa-solid fa-headphones"></i>
+                </div>
+                <div class="explore-card-info">
+                  <span>Music</span>
+                  <h3>Sounds of the world</h3>
+                </div>
+              </article>
+
+              <article class="explore-card" data-type="art">
+                <div class="explore-card-visual visual-art">
+                  <i class="fa-solid fa-palette"></i>
+                </div>
+                <div class="explore-card-info">
+                  <span>Art & design</span>
+                  <h3>Creative inspiration</h3>
+                </div>
+              </article>
+
+              <article class="explore-card" data-type="gaming">
+                <div class="explore-card-visual visual-gaming">
+                  <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <div class="explore-card-info">
+                  <span>Gaming</span>
+                  <h3>Enter the game world</h3>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- ====================================
+               SHORT VIDEO PAGE
+          ===================================== -->
+          <section class="page-section" id="shortsPage" data-section="shorts" hidden>
+            <div class="page-title">
+              <span class="eyebrow">QUICK ENTERTAINMENT</span>
+              <h1>Short <span>videos.</span></h1>
+              <p>Discover short-form videos from the community.</p>
+            </div>
+
+            <div class="shorts-toolbar">
+              <button class="toolbar-chip active">For you</button>
+              <button class="toolbar-chip">Following</button>
+              <button class="toolbar-chip">Trending</button>
+            </div>
+
+            <div class="shorts-feed" id="shortsFeed">
+              <div class="shorts-empty">
+                <i class="fa-solid fa-clapperboard"></i>
+                <h2>Your next favorite video awaits.</h2>
+                <p>Video content will appear here when available.</p>
+                <button class="primary-button" data-open-upload>
+                  Upload a video
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               VIDEO LIBRARY
+          ===================================== -->
+          <section class="page-section" id="videosPage" data-section="videos" hidden>
+            <div class="page-title">
+              <span class="eyebrow">WATCH & DISCOVER</span>
+              <h1>Video <span>library.</span></h1>
+              <p>Long-form videos, tutorials and entertainment.</p>
+            </div>
+
+            <div class="video-filters">
+              <button class="toolbar-chip active">Recommended</button>
+              <button class="toolbar-chip">Latest</button>
+              <button class="toolbar-chip">Popular</button>
+              <button class="toolbar-chip">Following</button>
+            </div>
+
+            <div class="video-grid" id="videoGrid">
+              <div class="empty-state">
+                <i class="fa-solid fa-film"></i>
+                <h3>No videos yet</h3>
+                <p>Uploaded videos will be displayed here.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               MUSIC PAGE
+          ===================================== -->
+          <section class="page-section" id="musicPage" data-section="music" hidden>
+            <div class="page-title">
+              <span class="eyebrow">A WORLD OF SOUND</span>
+              <h1>Feel the <span>music.</span></h1>
+              <p>Discover audio shared by the community.</p>
+            </div>
+
+            <div class="music-feature">
+              <div class="music-feature-art">
+                <i class="fa-solid fa-wave-square"></i>
+              </div>
+              <div class="music-feature-info">
+                <span>YOUR SOUNDTRACK</span>
+                <h2>Discover new sounds.</h2>
+                <p>Explore music and audio created and shared by users.</p>
+                <button class="primary-button" id="browseMusic">
+                  Explore music
+                </button>
+              </div>
+            </div>
+
+            <div class="section-heading">
+              <div>
+                <h2>Recently shared</h2>
+                <p>New audio from the community</p>
+              </div>
+            </div>
+
+            <div class="music-list" id="musicList">
+              <div class="empty-state">
+                <i class="fa-solid fa-music"></i>
+                <h3>Music is waiting</h3>
+                <p>Community audio will appear here.</p>
+              </div>
+            </div>
+
+            <!-- Persistent music player -->
+            <div class="music-player" id="musicPlayer" hidden>
+              <div class="player-track">
+                <div class="player-art">
+                  <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="player-track-info">
+                  <strong id="playerTrackName">No track selected</strong>
+                  <span id="playerArtistName">ZOVA Music</span>
+                </div>
+              </div>
+
+              <div class="player-controls">
+                <button class="icon-button" id="playerPrevious" aria-label="Previous">
+                  <i class="fa-solid fa-backward-step"></i>
+                </button>
+                <button class="player-play" id="playerPlay" aria-label="Play">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+                <button class="icon-button" id="playerNext" aria-label="Next">
+                  <i class="fa-solid fa-forward-step"></i>
+                </button>
+              </div>
+
+              <div class="player-progress">
+                <span id="playerCurrentTime">0:00</span>
+                <input type="range" id="playerSeek" min="0" max="100" value="0" aria-label="Track position">
+                <span id="playerDuration">0:00</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               MEMES PAGE
+          ===================================== -->
+          <section class="page-section" id="memesPage" data-section="memes" hidden>
+            <div class="page-title">
+              <span class="eyebrow">SHARE A LAUGH</span>
+              <h1>Meme <span>central.</span></h1>
+              <p>Funny moments, clever ideas and community humor.</p>
+            </div>
+
+            <div class="meme-toolbar">
+              <button class="toolbar-chip active">For you</button>
+              <button class="toolbar-chip">Latest</button>
+              <button class="toolbar-chip">Popular</button>
+            </div>
+
+            <div class="meme-grid" id="memeGrid">
+              <div class="empty-state">
+                <i class="fa-regular fa-face-laugh"></i>
+                <h3>Make someone laugh</h3>
+                <p>Memes shared by the community will appear here.</p>
+                <button class="primary-button" data-open-upload>
+                  Create a meme post
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               ARTICLES PAGE
+          ===================================== -->
+          <section class="page-section" id="articlesPage" data-section="articles" hidden>
+            <div class="page-title">
+              <span class="eyebrow">IDEAS & KNOWLEDGE</span>
+              <h1>Stories worth <span>reading.</span></h1>
+              <p>Articles, tutorials and perspectives from creators.</p>
+            </div>
+
+            <div class="article-list" id="articleList">
+              <div class="empty-state">
+                <i class="fa-regular fa-newspaper"></i>
+                <h3>No articles yet</h3>
+                <p>Community articles will appear here.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               SAVED PAGE
+          ===================================== -->
+          <section class="page-section" id="savedPage" data-section="saved" hidden>
+            <div class="page-title">
+              <span class="eyebrow">YOUR COLLECTION</span>
+              <h1>Saved <span>content.</span></h1>
+              <p>Keep your favorite posts close at hand.</p>
+            </div>
+
+            <div class="saved-filters">
+              <button class="toolbar-chip active">All</button>
+              <button class="toolbar-chip">Videos</button>
+              <button class="toolbar-chip">Posts</button>
+              <button class="toolbar-chip">Music</button>
+            </div>
+
+            <div class="saved-list" id="savedList">
+              <div class="empty-state">
+                <i class="fa-regular fa-bookmark"></i>
+                <h3>Your collection starts here</h3>
+                <p>Save posts to find them again later.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               MESSAGES PAGE
+          ===================================== -->
+          <section class="page-section" id="messagesPage" data-section="messages" hidden>
+            <div class="page-title">
+              <span class="eyebrow">STAY CONNECTED</span>
+              <h1>Your <span>messages.</span></h1>
+              <p>Conversations with your community.</p>
+            </div>
+
+            <div class="messaging-layout">
+              <div class="conversation-panel">
+                <div class="conversation-header">
+                  <h2>Chats</h2>
+                  <button class="icon-button" id="newConversation" aria-label="New chat">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                  </button>
+                </div>
+
+                <div class="conversation-search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="search" id="conversationSearch" placeholder="Search conversations">
+                </div>
+
+                <div class="conversation-list" id="conversationList">
+                  <div class="empty-state">
+                    <i class="fa-regular fa-comments"></i>
+                    <p>Your conversations will appear here.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="chat-panel" id="chatPanel">
+                <div class="chat-empty">
+                  <div class="chat-empty-icon">
+                    <i class="fa-regular fa-message"></i>
+                  </div>
+                  <h2>Your space to connect.</h2>
+                  <p>Select a conversation to begin.</p>
+                </div>
+
+                <div class="chat-active" id="chatActive" hidden>
+                  <div class="chat-header">
+                    <div class="chat-contact">
+                      <div class="avatar avatar-gradient" id="chatContactAvatar">?</div>
+                      <div>
+                        <strong id="chatContactName">Contact</strong>
+                        <span id="chatContactStatus">Conversation</span>
+                      </div>
+                    </div>
+                    <button class="icon-button" id="chatOptions" aria-label="Chat options">
+                      <i class="fa-solid fa-ellipsis"></i>
+                    </button>
+                  </div>
+
+                  <div class="chat-messages" id="chatMessages"></div>
+
+                  <form class="chat-composer" id="chatForm">
+                    <button type="button" class="icon-button" id="chatAttach" aria-label="Attach file">
+                      <i class="fa-solid fa-paperclip"></i>
+                    </button>
+                    <input type="text" id="chatInput" placeholder="Write a message..." maxlength="4000" autocomplete="off">
+                    <button type="submit" class="chat-send" aria-label="Send message">
+                      <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               COMMUNITIES PAGE
+          ===================================== -->
+          <section class="page-section" id="groupsPage" data-section="groups" hidden>
+            <div class="page-title">
+              <span class="eyebrow">FIND YOUR PEOPLE</span>
+              <h1>Communities <span>together.</span></h1>
+              <p>Join conversations around the things you love.</p>
+            </div>
+
+            <div class="community-toolbar">
+              <input type="search" id="communitySearch" placeholder="Find a community">
+              <button class="primary-button" id="createCommunity">
+                <i class="fa-solid fa-plus"></i> Create community
+              </button>
+            </div>
+
+            <div class="community-grid" id="communityGrid">
+              <div class="empty-state">
+                <i class="fa-solid fa-users"></i>
+                <h3>Find your community</h3>
+                <p>Communities will appear here when available.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               NOTIFICATIONS PAGE
+          ===================================== -->
+          <section class="page-section" id="notificationsPage" data-section="notifications" hidden>
+            <div class="page-title">
+              <span class="eyebrow">WHAT'S HAPPENING</span>
+              <h1>Your <span>notifications.</span></h1>
+              <p>Updates about your activity and community.</p>
+            </div>
+
+            <div class="notification-toolbar">
+              <button class="toolbar-chip active">All</button>
+              <button class="toolbar-chip">Unread</button>
+              <button class="text-button" id="markAllRead">Mark all as read</button>
+            </div>
+
+            <div class="notification-list" id="notificationList">
+              <div class="empty-state">
+                <i class="fa-regular fa-bell"></i>
+                <h3>You're all caught up</h3>
+                <p>New notifications will appear here.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               FOLLOWING PAGE
+          ===================================== -->
+          <section class="page-section" id="followingPage" data-section="following" hidden>
+            <div class="page-title">
+              <span class="eyebrow">YOUR COMMUNITY</span>
+              <h1>People you <span>follow.</span></h1>
+              <p>Keep up with creators you enjoy.</p>
+            </div>
+
+            <div class="following-list" id="followingList">
+              <div class="empty-state">
+                <i class="fa-solid fa-user-group"></i>
+                <h3>Your network starts here</h3>
+                <p>Follow creators to see their updates.</p>
+                <button class="primary-button" data-navigate="explore">
+                  Discover creators
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               USER PROFILE PAGE
+          ===================================== -->
+          <section class="page-section" id="profilePage" data-section="profile" hidden>
+            <div class="profile-cover" id="profileCover">
+              <button class="icon-button cover-edit" id="editCover" aria-label="Edit cover">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+
+            <div class="profile-main">
+              <div class="profile-main-top">
+                <div class="profile-large-avatar" id="profileAvatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <button class="secondary-button" id="editProfile">
+                  <i class="fa-solid fa-pen"></i> Edit profile
+                </button>
+              </div>
+
+              <div class="profile-identity">
+                <h1 id="profileDisplayName">Your name</h1>
+                <span id="profileHandle">@yourusername</span>
+                <p id="profileBio">Tell the world something about yourself.</p>
+              </div>
+
+              <div class="profile-statistics">
+                <div><strong id="profilePosts">0</strong><span>Posts</span></div>
+                <div><strong id="profileFollowers">0</strong><span>Followers</span></div>
+                <div><strong id="profileFollowing">0</strong><span>Following</span></div>
+              </div>
+
+              <div class="profile-tabs">
+                <button class="profile-tab active" data-profile-tab="posts">Posts</button>
+                <button class="profile-tab" data-profile-tab="media">Media</button>
+                <button class="profile-tab" data-profile-tab="likes">Likes</button>
+              </div>
+
+              <div class="profile-content" id="profileContent">
+                <div class="empty-state">
+                  <i class="fa-regular fa-images"></i>
+                  <h3>Your story starts here</h3>
+                  <p>Your posts will appear on your profile.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               CREATOR STUDIO
+          ===================================== -->
+          <section class="page-section" id="analyticsPage" data-section="analytics" hidden>
+            <div class="page-title">
+              <span class="eyebrow">CREATOR TOOLS</span>
+              <h1>Creator <span>studio.</span></h1>
+              <p>Understand your content and audience.</p>
+            </div>
+
+            <div class="creator-stats">
+              <article class="stat-card">
+                <span>Total views</span>
+                <strong id="analyticsViews">0</strong>
+                <i class="fa-regular fa-eye"></i>
+              </article>
+              <article class="stat-card">
+                <span>Engagement</span>
+                <strong id="analyticsEngagement">0</strong>
+                <i class="fa-solid fa-chart-line"></i>
+              </article>
+              <article class="stat-card">
+                <span>Followers</span>
+                <strong id="analyticsFollowers">0</strong>
+                <i class="fa-solid fa-users"></i>
+              </article>
+            </div>
+
+            <div class="studio-panel">
+              <h2>Content performance</h2>
+              <div class="studio-chart" id="studioChart">
+                <div class="empty-state">
+                  <i class="fa-solid fa-chart-column"></i>
+                  <p>Analytics will appear as your content gains activity.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====================================
+               SETTINGS
+          ===================================== -->
+          <section class="page-section" id="settingsPage" data-section="settings" hidden>
+            <div class="page-title">
+              <span class="eyebrow">MAKE IT YOURS</span>
+              <h1>Account <span>settings.</span></h1>
+              <p>Manage your preferences and account.</p>
+            </div>
+
+            <div class="settings-layout">
+              <nav class="settings-navigation" aria-label="Settings sections">
+                <button class="settings-tab active" data-settings-tab="general">General</button>
+                <button class="settings-tab" data-settings-tab="appearance">Appearance</button>
+                <button class="settings-tab" data-settings-tab="language">Language</button>
+                <button class="settings-tab" data-settings-tab="privacy">Privacy</button>
+                <button class="settings-tab" data-settings-tab="security">Security</button>
+                <button class="settings-tab" data-settings-tab="notifications">Notifications</button>
+              </nav>
+
+              <div class="settings-content" id="settingsContent">
+                <section class="settings-group" data-settings-panel="general">
+                  <h2>General preferences</h2>
+                  <div class="setting-row">
+                    <div>
+                      <strong>Language</strong>
+                      <p>Choose your preferred language.</p>
+                    </div>
+                    <select id="languageSelect" aria-label="Language">
+                      <option value="en">English</option>
+                      <option value="ta">தமிழ்</option>
+                      <option value="hi">हिन्दी</option>
+                      <option value="es">Español</option>
+                      <option value="fr">Français</option>
+                      <option value="de">Deutsch</option>
+                    </select>
+                  </div>
+                </section>
+
+                <section class="settings-group" data-settings-panel="appearance" hidden>
+                  <h2>Appearance</h2>
+                  <div class="setting-row">
+                    <div>
+                      <strong>Color theme</strong>
+                      <p>Choose how ZOVA looks.</p>
+                    </div>
+                    <select id="appearanceSelect" aria-label="Color theme">
+                      <option value="system">System default</option>
+                      <option value="light">Light</option>
+                      <option value="dark">Dark</option>
+                    </select>
+                  </div>
+                </section>
+
+                <section class="settings-group" data-settings-panel="language" hidden>
+                  <h2>Language preferences</h2>
+                  <p>Language selection and translation preferences.</p>
+                </section>
+
+                <section class="settings-group" data-settings-panel="privacy" hidden>
+                  <h2>Privacy</h2>
+                  <div class="setting-row">
+                    <div>
+                      <strong>Private profile</strong>
+                      <p>Control who can view your profile.</p>
+                    </div>
+                    <input type="checkbox" id="privateProfile">
+                  </div>
+                </section>
+
+                <section class="settings-group" data-settings-panel="security" hidden>
+                  <h2>Security</h2>
+                  <p>Account security options will be available after authentication is connected.</p>
+                </section>
+
+                <section class="settings-group" data-settings-panel="notifications" hidden>
+                  <h2>Notification preferences</h2>
+                  <div class="setting-row">
+                    <div>
+                      <strong>In-app notifications</strong>
+                      <p>Receive updates inside ZOVA.</p>
+                    </div>
+                    <input type="checkbox" id="inAppNotifications" checked>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- ======================================
+             RIGHT DISCOVERY SIDEBAR
+        ======================================= -->
+        <aside class="discovery-column">
+
+          <!-- Account prompt -->
+          <section class="discovery-card profile-prompt" id="accountPrompt">
+            <span class="eyebrow">GET STARTED</span>
+            <h3>Make ZOVA yours.</h3>
+            <p>Create your account to follow creators, save posts and share your own content.</p>
+            <button class="primary-button" id="signupButton">Create account</button>
+            <button class="secondary-button" id="loginButton">Sign in</button>
+          </section>
+
+          <!-- Trending topics -->
+          <section class="discovery-card trending-card">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">WHAT'S POPULAR</span>
+                <h3>Trending topics</h3>
+              </div>
+              <button class="icon-button" aria-label="Trending options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+
+            <div class="trending-list" id="trendingList">
+              <a href="#technology" class="trending-item">
+                <div>
+                  <span>Technology · Trending</span>
+                  <strong>#FutureOfAI</strong>
+                  <small>12.8K posts</small>
+                </div>
+                <i class="fa-solid fa-arrow-trend-up"></i>
+              </a>
+
+              <a href="#music" class="trending-item">
+                <div>
+                  <span>Music · Popular</span>
+                  <strong>#NewMusic</strong>
+                  <small>8.4K posts</small>
+                </div>
+                <i class="fa-solid fa-music"></i>
+              </a>
+
+              <a href="#creativity" class="trending-item">
+                <div>
+                  <span>Art · Discover</span>
+                  <strong>#CreativeWorld</strong>
+                  <small>6.2K posts</small>
+                </div>
+                <i class="fa-solid fa-palette"></i>
+              </a>
+
+              <a href="#community" class="trending-item">
+                <div>
+                  <span>Community · Popular</span>
+                  <strong>#ZOVACommunity</strong>
+                  <small>3.1K posts</small>
+                </div>
+                <i class="fa-solid fa-users"></i>
+              </a>
+            </div>
+
+            <button class="text-button" id="moreTrending">Explore more</button>
+          </section>
+
+          <!-- Creator recommendations -->
+          <section class="discovery-card creators-card">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">MEET THE COMMUNITY</span>
+                <h3>Suggested creators</h3>
+              </div>
+            </div>
+
+            <div class="creator-list" id="suggestedCreators">
+              <div class="creator-item">
+                <div class="creator-avatar creator-one">AR</div>
+                <div class="creator-info">
+                  <strong>Alex Rivera</strong>
+                  <span>Digital creator</span>
+                </div>
+                <button class="follow-button" data-follow="Alex Rivera">Follow</button>
+              </div>
+
+              <div class="creator-item">
+                <div class="creator-avatar creator-two">SK</div>
+                <div class="creator-info">
+                  <strong>Sam Kim</strong>
+                  <span>Music & lifestyle</span>
+                </div>
+                <button class="follow-button" data-follow="Sam Kim">Follow</button>
+              </div>
+
+              <div class="creator-item">
+                <div class="creator-avatar creator-three">NP</div>
+                <div class="creator-info">
+                  <strong>Nina Patel</strong>
+                  <span>Art & photography</span>
+                </div>
+                <button class="follow-button" data-follow="Nina Patel">Follow</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Community highlights -->
+          <section class="discovery-card highlights-card">
+            <span class="eyebrow">COMMUNITY SPOTLIGHT</span>
+            <h3>Made by creators.</h3>
+            <p>Explore ideas, meet new people and share your creativity.</p>
+            <button class="text-button" data-navigate="explore">
+              Discover creators <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </section>
+
+          <!-- Footer -->
+          <footer class="discovery-footer">
+            <div class="footer-links">
+              <a href="#about">About</a>
+              <a href="#privacy">Privacy</a>
+              <a href="#terms">Terms</a>
+              <a href="#help">Help</a>
+            </div>
+            <p>© 2026 ZOVA. Built for everyone.</p>
+          </footer>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================
+       UPLOAD DIALOG
+  =========================================== -->
+  <dialog class="modal upload-modal" id="uploadModal">
+    <div class="modal-header">
+      <div>
+        <span class="eyebrow">CREATE SOMETHING</span>
+        <h2>New post</h2>
+      </div>
+      <button class="icon-button modal-close" data-close="uploadModal" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <form id="uploadForm">
+      <label for="postText">Your caption</label>
+      <textarea id="postText" name="caption" placeholder="What's on your mind?" rows="4" maxlength="2000"></textarea>
+
+      <label for="postCategory">Content category</label>
+      <select id="postCategory" name="category">
+        <option value="general">General post</option>
+        <option value="videos">Video</option>
+        <option value="music">Music</option>
+        <option value="memes">Meme</option>
+        <option value="technology">Technology</option>
+        <option value="art">Art & Design</option>
+        <option value="gaming">Gaming</option>
+        <option value="education">Education</option>
+      </select>
+
+      <label for="postFile">Add media</label>
+      <input type="file" id="postFile" name="media" accept="image/*,video/*,audio/*">
+
+      <div class="upload-preview" id="uploadPreview">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <span>Your selected media will appear here.</span>
+      </div>
+
+      <div class="upload-progress" id="uploadProgress" hidden>
+        <div class="progress-track">
+          <div class="progress-fill" id="uploadProgressFill"></div>
+        </div>
+        <span id="uploadProgressText">Preparing upload...</span>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="secondary-button" data-close="uploadModal">Cancel</button>
+        <button type="submit" class="primary-button">Publish preview</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ==========================================
+       AUTHENTICATION DIALOG
+  =========================================== -->
+  <dialog class="modal auth-modal" id="authModal">
+    <div class="modal-header">
+      <div>
+        <span class="eyebrow">WELCOME TO ZOVA</span>
+        <h2 id="authTitle">Create your account</h2>
+      </div>
+      <button class="icon-button modal-close" data-close="authModal" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <form id="authForm">
+      <label for="authName">Display name</label>
+      <input type="text" id="authName" autocomplete="name" placeholder="Your name">
+
+      <label for="authEmail">Email address</label>
+      <input type="email" id="authEmail" autocomplete="email" placeholder="you@example.com" required>
+
+      <label for="authPassword">Password</label>
+      <input type="password" id="authPassword" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required>
+
+      <div class="auth-error" id="authError" role="alert" hidden></div>
+
+      <button type="submit" class="primary-button auth-submit">Continue</button>
+    </form>
+
+    <p class="auth-switch">
+      <span id="authSwitchText">Already have an account?</span>
+      <button type="button" class="text-button" id="authSwitch">Sign in</button>
+    </p>
+
+    <p class="auth-notice">
+      Authentication will be connected through Supabase.
+    </p>
+  </dialog>
+
+  <!-- ==========================================
+       PROFILE EDIT DIALOG
+  =========================================== -->
+  <dialog class="modal" id="profileModal">
+    <div class="modal-header">
+      <div>
+        <span class="eyebrow">PERSONALIZE YOUR SPACE</span>
+        <h2>Edit profile</h2>
+      </div>
+      <button class="icon-button modal-close" data-close="profileModal" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <form id="profileForm">
+      <label for="editDisplayName">Display name</label>
+      <input type="text" id="editDisplayName" maxlength="60" placeholder="Your name">
+
+      <label for="editUsername">Username</label>
+      <input type="text" id="editUsername" maxlength="30" placeholder="yourusername">
+
+      <label for="editBio">Bio</label>
+      <textarea id="editBio" rows="4" maxlength="250" placeholder="Tell the world about yourself"></textarea>
+
+      <div class="modal-actions">
+        <button type="button" class="secondary-button" data-close="profileModal">Cancel</button>
+        <button type="submit" class="primary-button">Save preview</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ==========================================
+       COMMENT DIALOG
+  =========================================== -->
+  <dialog class="modal comment-modal" id="commentModal">
+    <div class="modal-header">
+      <h2>Comments</h2>
+      <button class="icon-button modal-close" data-close="commentModal" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="comment-dialog-list" id="commentDialogList">
+      <div class="empty-state">
+        <i class="fa-regular fa-comments"></i>
+        <p>Start the conversation.</p>
+      </div>
+    </div>
+
+    <form class="comment-dialog-form" id="commentDialogForm">
+      <input type="text" id="commentDialogInput" placeholder="Write a comment..." maxlength="500" required>
+      <button type="submit" aria-label="Send comment">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+  </dialog>
+
+  <!-- ==========================================
+       SEARCH RESULTS PANEL
+  =========================================== -->
+  <section class="search-overlay" id="searchOverlay" hidden aria-label="Search results">
+    <div class="search-overlay-header">
+      <h2>Search ZOVA</h2>
+      <button class="icon-button" id="closeSearch" aria-label="Close search">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="search-result-tabs">
+      <button class="toolbar-chip active" data-search-type="all">All</button>
+      <button class="toolbar-chip" data-search-type="people">People</button>
+      <button class="toolbar-chip" data-search-type="posts">Posts</button>
+      <button class="toolbar-chip" data-search-type="media">Media</button>
+    </div>
+
+    <div class="search-results" id="searchResults">
+      <div class="empty-state">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <p>Search for creators and content.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TOAST NOTIFICATIONS
+  =========================================== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Mobile navigation backdrop -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Mobile bottom navigation -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile navigation">
+    <button class="mobile-nav-item active" data-navigate="home" aria-label="Home">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </button>
+
+    <button class="mobile-nav-item" data-navigate="explore" aria-label="Explore">
+      <i class="fa-solid fa-compass"></i>
+      <span>Explore</span>
+    </button>
+
+    <button class="mobile-create-button" id="mobileCreate" aria-label="Create post">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <button class="mobile-nav-item" data-navigate="messages" aria-label="Messages">
+      <i class="fa-regular fa-message"></i>
+      <span>Chats</span>
+    </button>
+
+    <button class="mobile-nav-item" data-navigate="profile" aria-label="Profile">
+      <i class="fa-regular fa-user"></i>
+      <span>Profile</span>
+    </button>
+  </nav>
+
+  <!-- Application entry point -->
+  <script src="app.js" defer></script>
+</body>
+</html>
